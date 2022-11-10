@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 200px;
+            margin: 5px;
+            text-align: left;
+        }
+
+        input {
+            display: inline-block;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            background-color: #4CAF50;
+
+        }
+    </style>
+    <title>Employee Form</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+<div align="center">
+    <h3>Employee Form</h3>
+    <hr>
+    <form action="#" th:action="@{/employees/save}" th:object="${employee}" method="post">
+
+        <input type="hidden" th:field="*{id}"/>
+        <label>First Name:</label>
+        <input type="text" th:field="*{firstName}"/><br/>
+
+        <label>Last Name:</label>
+        <input type="text" th:field="*{lastName}"/><br/>
+
+        <label>Email:</label>
+        <input type="text" th:field="*{email}"/><br><br><br>
+        <button type="submit"> Save</button>
+    </form>
+    <hr>
+    <a th:href="@{/employees/list}">Back to Employees List</a>
+</div>
+</body>
+</html>
